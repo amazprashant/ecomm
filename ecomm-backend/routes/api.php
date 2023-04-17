@@ -19,4 +19,4 @@ use App\Http\Controllers\UserConroller;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("register",[UserConroller::class,'register']);
+Route::post("register",[UserConroller::class,'register']);
