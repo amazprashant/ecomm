@@ -4,17 +4,17 @@ import Header from './Header';
 function Login()
 {
   const navigate = useNavigate();
-  useEffect(()=>{
-    if(localStorage.getItem('user-item')){
-        navigate("/add")
+  useEffect(() => {
+    if (localStorage.getItem('user-info')) {
+      navigate("/add")
     }
-},[])
+  }, [])
 
-  return(
+  return (
     <div>
-    <Header />
-  <h1>Login Page</h1>
-  </div>
+      <Header />
+      <h1>Login Page</h1>
+    </div>
   )
 }
 export default Login
