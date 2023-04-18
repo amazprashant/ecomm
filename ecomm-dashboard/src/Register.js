@@ -1,11 +1,12 @@
 import React, { UseState, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function Register() {
     const [name, setName] = useState("");
     const [password, setPassowrd] = useState("");
     const [email, setEmail] = useState();
-     
+    const history =useNavigate();
+
     async function signup() {
         let item = { name, password, email };
         
@@ -21,6 +22,7 @@ function Register() {
         result = await result.json();
         console.warn("result", result);
         localStorage.setItem("User-Info",JSON.stringify(result));
+        history("/addproduct");
     }
     return (
         <div className="col-sm-6 offset-sm-3">
