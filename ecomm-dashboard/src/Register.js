@@ -18,8 +18,7 @@ function Register() {
     async function signup() {
         let item = { name, password, email };
         
-        console.warn(item);
-        let result = await fetch("http://localhost:8000/api/register", {
+        let result = await fetch("http://localhost:8000/api/login", {
             method: 'POST',
             body: JSON.stringify(item),
             headers: {
@@ -28,7 +27,6 @@ function Register() {
             }
         })
         result = await result.json();
-        console.warn("result", result);
         localStorage.setItem("User-Info",JSON.stringify(result));
         history("/addproduct");
     }
