@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserConroller;
+use App\Http\Controllers\ProductController;
+
 
 
 /*
@@ -21,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post("register",[UserConroller::class,'register']);
 Route::Post("login",[UserConroller::class,'login']);
+Route::Post("addproduct",[ProductController::class,'addproduct']);
+
 
