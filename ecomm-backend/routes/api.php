@@ -25,6 +25,8 @@ Route::post("register",[UserConroller::class,'register']);
 Route::Post("login",[UserConroller::class,'login']);
 Route::Post("addproduct",[ProductController::class,'addproduct']);
 Route::Get("list",[ProductController::class,'list']);
+Route::Delete("delete/{id}",[ProductController::class,'delete']);
+
 
 
 
