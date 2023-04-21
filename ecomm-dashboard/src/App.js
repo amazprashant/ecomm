@@ -1,10 +1,11 @@
 import './App.css';
-import {Routes, BrowserRouter, Route} from "react-router-dom";
+import {Routes, BrowserRouter, Route, Switch} from "react-router-dom";
 import Login from './Login';
 import Register from './Register';
 import Addproduct from './Addproduct';
 import Updateproduct from './Updateproduct';
 import Protected from './Protected';
+import ProductList from './ProductList';
 
 
 
@@ -19,7 +20,9 @@ function App() {
         {/* <Route exact path="/addproduct" element={<Protected Cmp="Addproduct"/>} />
         <Route exact path="/updateproduct" element={<Protected Cmp= "Updateproduct"/>} />  */}
         <Route path="/addproduct"  element={<Protected Cmp={Addproduct} />} />
-        <Route path="/updateproduct"  element={<Protected Cmp={Updateproduct} />} />        
+        <Route path="/updateproduct"  element={<Protected Cmp={Updateproduct} />} />  
+        <Route path="/"  element={<Protected Cmp={ProductList} />} />        
+      
      </Routes>
      </BrowserRouter>
     </div>
