@@ -25,7 +25,7 @@ function Addproduct() {
         alert("Data has been Saved");
         //result = await result.json();
         // //localStorage.setItem("User-Info",JSON.stringify(result));
-        // history("/addproduct");
+         history("/");
     }
     return (
         <>
