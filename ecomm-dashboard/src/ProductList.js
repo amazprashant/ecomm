@@ -1,6 +1,7 @@
 import Header from './Header';
-import React,{useState,useEffect} from 'react';
-import{Table} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
   const [data, setData] = useState([]);
@@ -33,36 +34,42 @@ function ProductList() {
 
   // ... Rest of the component code
 
-  return(
+  return (
     <div>
       <Header />
       <h1>Product List</h1>
       <Table>
-  <tbody>
-    <tr>
-      <td>Id</td>
-      <td>Name</td>
-      <td>Description</td>
-      <td>Image</td>
-      <td>Operation</td>
-    </tr>
-    {
-    data.map((item) => 
-      <tr>
-        <td>{item.id}</td>
-        <td>{item.name}</td>
-        <td>{item.description}</td>
-        <td>
-          <img style={{width:100}}src={"http://localhost:8000/" + item.file_path} alt="Product Image" />
-        </td>
-        <td><span onClick={()=>deleteOperation(item.id)} className="delete">Delete</span></td>
-      </tr>
-      )
-    }
-  </tbody>
-</Table>
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Image</td>
+            <td>Operation</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            data.map((item) =>
+              <tr>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td>
+                  <img style={{ width: 100 }} src={"http://localhost:8000/" + item.file_path} alt="Product Image" />
+                </td>
+                <td><span onClick={() => deleteOperation(item.id)} className="delete">Delete</span>
+                  <Link to={"updateproduct/" + item.id}>
+                    <span className="update" >Update</span>
+                  </Link>
+                </td>
+              </tr>
+            )
+          }
+        </tbody>
+      </Table>
 
     </div>
   )
-  }
- export default ProductList;
+}
+export default ProductList;
