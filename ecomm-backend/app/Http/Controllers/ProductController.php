@@ -41,6 +41,23 @@ class ProductController extends Controller
     {
        return product::find($id);
     }
+    function updateproduct($id,Request $req)
+    {
+       $product = product::find($id);
+       $product->name = $req->input("name");
+       $product->price = $req->input("price");
+       $product->description= $req->input("description");
+       if($req->file('file'))
+       {
+        $product->file_path =$req->file('file')->store('products');
+       }
+        $product->updated_at =Now();
+        $product->create_at =Now();
+
+        $product->save();
+        return $product;
+
+    }
     function search($key)
     {
        return product::where('name','like',"%$key%")->get();
