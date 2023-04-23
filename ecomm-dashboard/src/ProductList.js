@@ -1,17 +1,24 @@
 import Header from "./Header";
+import {Link} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
+import Updateproduct from './Updateproduct';
+
 function ProductList() {
     const [data, setDate] = useState([]);
-    const history = useNavigate();    
+    const history = useNavigate();   
+    useEffect(()=>{
+        getData();
+
+    },[]); 
     async function deleteoperation(id) {
         let result = await fetch("http://localhost:8000/api/delete/" + id, {
             method: "get"
         });
         result = await result.json();
         alert(result);
-        history("/");
+        getData();
     }
     async function getData() {
         const fetchData = async () => {
@@ -21,7 +28,6 @@ function ProductList() {
         };
         fetchData();
     }
-    getData();
     return (
         <>
             <Header />
@@ -48,7 +54,12 @@ function ProductList() {
                                     <td>{item.price}</td>
                                     <td>{item.description}</td>
                                     <td><img style={{ width: 100 }} src={"http://localhost:8000/" + item.file_path} /></td>
-                                    <td><span className="deletebtn" onClick={() => deleteoperation(item.id)}>Delete</span><span>Update</span></td>
+                                    <td><span className="deletebtn" onClick={() => deleteoperation(item.id)}>Delete</span>
+                                    <Link to ={"updateproduct/"+item.id}>                                    
+                                    <span className="updatebtn" >Update</span>
+                                    </Link>
+                                        
+                                    </td>
 
                                 </tr>
                             )

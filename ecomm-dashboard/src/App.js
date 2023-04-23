@@ -20,7 +20,7 @@ function App() {
         {/* <Route exact path="/addproduct" element={<Protected Cmp="Addproduct"/>} />
         <Route exact path="/updateproduct" element={<Protected Cmp= "Updateproduct"/>} />  */}
         <Route path="/addproduct"  element={<Protected Cmp={Addproduct} />} />
-        <Route path="/updateproduct"  element={<Protected Cmp={Updateproduct} />} />  
+        <Route path="/updateproduct/:id"  element={<Protected Cmp={Updateproduct} />} />  
         <Route path="/"  element={<Protected Cmp={ProductList} />} />        
       
      </Routes>

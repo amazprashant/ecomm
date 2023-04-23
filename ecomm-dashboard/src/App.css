@@ -21,6 +21,14 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.updatebtn
+{
+  background-color: #10520a!important;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
