@@ -6,6 +6,8 @@ import Addproduct from './Addproduct';
 import Updateproduct from './Updateproduct';
 import Protected from './Protected';
 import ProductList from './ProductList';
+import Searchproduct from './Searchproduct';
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
         {/* <Route exact path="/addproduct" element={<Protected Cmp="Addproduct"/>} />
         <Route exact path="/updateproduct" element={<Protected Cmp= "Updateproduct"/>} />  */}
         <Route path="/addproduct"  element={<Protected Cmp={Addproduct} />} />
+        <Route path="/Searchproduct"  element={<Protected Cmp={Searchproduct} />} />
         <Route path="/updateproduct/:id"  element={<Protected Cmp={Updateproduct} />} />  
         <Route path="/"  element={<Protected Cmp={ProductList} />} />        
       

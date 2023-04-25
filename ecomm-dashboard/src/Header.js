@@ -8,7 +8,6 @@ function Header() {
     const history = useNavigate();
 
     function logout() {
-        console.warn("sakshi");
         localStorage.clear("");
         history("/register");
 
@@ -22,6 +21,7 @@ function Header() {
                         localStorage.getItem('User-Info') ?
                             <>
                                 <Link to="/">Products List</Link>
+                                <Link to="/Searchproduct">Search Products</Link>
                                 <Link to="/Addproduct">Add Products </Link>
                                 <Link to="/Updateproduct">Update Products </Link>
                             </>
